@@ -8,7 +8,6 @@ using System.Web.Routing;
 using Microsoft.Owin.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using SignalRChat;
 
 namespace Ao.Parklife.Services
 {

@@ -56,18 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TwitterClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ao.Parklife.Services\Ao.Parklife.Services.csproj">
-      <Project>{09d319bb-2d63-40f7-982e-9b7075d5ce73}</Project>
-      <Name>Ao.Parklife.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Spring.Rest.txt" />
