@@ -49,3 +49,4 @@ C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.csprojResolveAssemblyReference.cache
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.pdb
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.csprojResolveAssemblyReference.cache
