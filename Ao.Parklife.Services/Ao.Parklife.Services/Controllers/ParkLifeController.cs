@@ -15,6 +15,7 @@ namespace Ao.Parklife.Services.Controllers
     public class ParkLifeController : ApiController
     {
         private static readonly List<User> _visibleUsers = new List<User>();
+        private static readonly List<Beacon> _beacons = new List<Beacon>();
 
         [HttpGet]
         [Route("GetAll")]
@@ -112,6 +113,28 @@ namespace Ao.Parklife.Services.Controllers
             }
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
+        }
+        [Route("signalupdate/{userName}/{regionId}/{uuid}/{receivedSignalStrength}")]
+        [HttpPost]
+        [HttpGet]
+        public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid, int receivedSignalStrength)
+        {
+            var beacon = _beacons.FirstOrDefault(x => x.UUID==uuid);
+            if (beacon == null)
+            {
+                beacon = new Beacon
+                {
+                    UUID = uuid,
+                    RegionId = regionId,
+                    LatestReading = new BeaconReading(DateTime.Now, receivedSignalStrength)
+                };
+
+                _beacons.Add(beacon);
+                
+            }
+            beacon.LatestReading= new BeaconReading(DateTime.Now,receivedSignalStrength);
+
+            return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK, "OK");
         }
     }
 }
