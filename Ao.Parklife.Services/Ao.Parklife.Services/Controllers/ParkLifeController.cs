@@ -15,6 +15,12 @@ namespace Ao.Parklife.Services.Controllers
     public class ParkLifeController : ApiController
     {
         private static readonly List<User> _visibleUsers = new List<User>();
+        private TwitterClient _twitter;
+
+        public ParkLifeController()
+        {
+            _twitter = new TwitterClient();
+        }
 
         [HttpGet]
         [Route("GetAll")]
@@ -95,6 +101,8 @@ namespace Ao.Parklife.Services.Controllers
                 user.VisibleRegions.Add(new Region(regionId) { EnteredAt = DateTime.Now });
             }
 
+            _twitter.Send(user.UserName + "has entered the Park!");
+
             return Request.CreateResponse(System.Net.HttpStatusCode.Created, regionId.ToString());
         }
 
@@ -110,6 +118,8 @@ namespace Ao.Parklife.Services.Controllers
                 if (!user.VisibleRegions.Any())
                     _visibleUsers.Remove(user);
             }
+
+            _twitter.Send(user.UserName + "has left the Park!");
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
         }
