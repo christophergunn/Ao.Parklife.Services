@@ -93,19 +93,28 @@ private TwitterClient _twitter;
         public HttpResponseMessage EnterRegion(RegionIds regionId, string userid)
         {
             var user = _visibleUsers.FirstOrDefault(x => x.UserName == userid);
-            if (user == null)
-            {
-                user = new User(userid);
-                _visibleUsers.Add(user);
-            }
+            user = AddUser(userid, user);
             if (user.VisibleRegions.FirstOrDefault(r => r.Id == regionId) == null)
             {
                 user.VisibleRegions.Add(new Region(regionId) { EnteredAt = DateTime.Now });
             }
+            if (user.VisibleRegions.Count()==1)
+            {
+                user.ClosestRegion = user.VisibleRegions.First();
+            }
+           
 
             _twitter.Send(user.UserName + "has entered the Park!");
 
             return Request.CreateResponse(System.Net.HttpStatusCode.Created, regionId.ToString());
+        }
+
+        private static User AddUser(string userid, User user)
+        {
+            if (user != null) return user;
+            user = new User(userid);
+            _visibleUsers.Add(user);
+            return user;
         }
 
         [Route("exitregion/{regionId}/{userid}")]
@@ -114,34 +123,46 @@ private TwitterClient _twitter;
         public HttpResponseMessage ExitRegion(RegionIds regionId, string userid)
         {
             var user = _visibleUsers.FirstOrDefault(x => x.UserName == userid);
+
             if (user != null)
             {
                 user.VisibleRegions.RemoveAll(r => r.Id == regionId);
                 if (!user.VisibleRegions.Any())
                     _visibleUsers.Remove(user);
             }
+            if (user != null && user.VisibleRegions.Count() == 1)
+            {
+                user.ClosestRegion = user.VisibleRegions.First();
+            }
 
             _twitter.Send(user.UserName + "has left the Park!");
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
         }
-        [Route("signalupdateclosest/{userName}/{regionId}/{uuid}/{receivedSignalStrength}")]
+        [Route("signalupdateclosest/{regionId}/{userName}/{uuid}/{receivedSignalStrength}")]
         [HttpPost]
         [HttpGet]
         public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid, int receivedSignalStrength)
         {
             var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);
-            if (user == null)
-            {
-                user = new User(userName);
-                _visibleUsers.Add(user);
-            }
-            user.ClosestBeacon = new Beacon()
+            user = AddUser(userName, user);
+            user.ClosestBeacon = new Beacon
             {
                 UUID = uuid,
                 RegionId = regionId,
                 LatestReading = new BeaconReading(DateTime.Now, receivedSignalStrength)
             };
+
+            var matchingRegion = user.VisibleRegions.FirstOrDefault(r => r.Id == regionId);
+            if (matchingRegion == null)
+            {
+                matchingRegion = new Region(regionId)
+                {
+                    EnteredAt = DateTime.Now
+                };
+                user.VisibleRegions.Add(matchingRegion);
+            }
+            user.ClosestRegion = matchingRegion;
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK,"OK");
         }
