@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Ao.Parklife.Services.Models;
+using Ao.Parklife.Services.Twitter;
 using Newtonsoft.Json;
 
 namespace Ao.Parklife.Services.Controllers
@@ -97,10 +98,8 @@ namespace Ao.Parklife.Services.Controllers
             if (user.VisibleRegions.Count() == 1)
             {
                 user.ClosestRegion = user.VisibleRegions.First();
+                _twitter.Send(user.UserName + " has entered the Park!");
             }
-
-
-            _twitter.Send(user.UserName + "has entered the Park!");
 
             return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
@@ -131,7 +130,10 @@ namespace Ao.Parklife.Services.Controllers
                 user.ClosestRegion = user.VisibleRegions.First();
             }
 
-            if (user != null) _twitter.Send(user.UserName + "has left the Park!");
+            if (user != null && !user.VisibleRegions.Any())
+            {
+                _twitter.Send(user.UserName + " has left the Park!");
+            }
 
             return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
