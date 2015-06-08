@@ -76,3 +76,14 @@ C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Twitter.pdb
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Twitter.xml
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Http.Cors.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Cors.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Security.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Owin.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Cors.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Security.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Hosting.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Microsoft.Owin.Hosting.xml

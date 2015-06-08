@@ -15,7 +15,6 @@ C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\System.Web.WebPages.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\System.Web.Cors.dll
-C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Common.Logging.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Ao.Parklife.Services.pdb
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\nunit.framework.xml
@@ -38,3 +37,13 @@ C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\obj\Debug\Ao.Parklife.Services.Tests.csprojResolveAssemblyReference.cache
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\obj\Debug\Ao.Parklife.Services.Tests.dll
 C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\obj\Debug\Ao.Parklife.Services.Tests.pdb
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Ao.Parklife.Services.Tests.dll.config
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Owin.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.Cors.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.Cors.xml
+C:\Users\gunnch\Documents\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services.Tests\bin\Debug\Microsoft.Owin.Security.xml

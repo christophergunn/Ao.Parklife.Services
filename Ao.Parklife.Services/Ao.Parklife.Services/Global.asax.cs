@@ -5,8 +5,10 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.Owin.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using SignalRChat;
 
 namespace Ao.Parklife.Services
 {
@@ -14,6 +16,8 @@ namespace Ao.Parklife.Services
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : System.Web.HttpApplication
     {
+        private object _signalR;
+
         protected void Application_Start()
         {
             JsonConvert.DefaultSettings = (() =>
@@ -28,6 +32,8 @@ namespace Ao.Parklife.Services
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            _signalR = WebApp.Start<Startup>("");
         }
     }
 }
