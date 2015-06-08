@@ -136,10 +136,10 @@ namespace Ao.Parklife.Services.Controllers
             return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
 
-        [Route("signalupdateclosest/{regionId}/{userName}/{uuid}/{receivedSignalStrength}")]
+        [Route("signalupdateclosest/{regionId}/{userName}/{uuid}/{receivedSignalStrength:double}")]
         [HttpPost]
         [HttpGet]
-        public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid,
+        public HttpResponseMessage SignalUpdate(RegionIds regionId, string userName, string uuid,
             double receivedSignalStrength)
         {
             var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);

@@ -53,3 +53,13 @@ C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\D
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Cors.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Http.Cors.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Http.Cors.xml
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Common.Logging.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Rest.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Core.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Twitter.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Rest.pdb
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Rest.xml
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Core.pdb
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Core.xml
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Twitter.pdb
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\Spring.Social.Twitter.xml
