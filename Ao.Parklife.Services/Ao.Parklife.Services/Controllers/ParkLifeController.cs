@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 using Ao.Parklife.Services.Models;
 using Newtonsoft.Json;
 
@@ -38,17 +39,19 @@ namespace Ao.Parklife.Services.Controllers
             }
         };
 
-        [HttpGet]
+        //[System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("GetAll")]
         public string GetAllUsers()
         {
             return JsonConvert.SerializeObject(Users);
         }
 
-        
-        [HttpPost]
-        public HttpResponseMessage EnterRegion(int userId, Regions region)
+        [Route("api/parklife/enterregion/{region}/{userid}")]
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage EnterRegion( Regions region,string userid)
         {
-            var user = Users.FirstOrDefault(x => x.Id == userId);
+            var uId = Convert.ToInt32(userid);
+            var user = Users.FirstOrDefault(x => x.Id == uId);
             if (user != null) user.Regions.Add(region);
 
             var response = Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, region.ToString());
@@ -56,10 +59,12 @@ namespace Ao.Parklife.Services.Controllers
             return response;
         }
 
-        [HttpPost]
-        public HttpResponseMessage ExitRegion(int userId, Regions region)
+        [Route("exitregion/{region}/{userid}")]
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage ExitRegion( Regions region,string userid)
         {
-            var user = Users.FirstOrDefault(x => x.Id == userId);
+            var uId = Convert.ToInt32(userid);
+            var user = Users.FirstOrDefault(x => x.Id == uId);
             if (user != null)
             {
                 var regionsList = new List<Regions>();
