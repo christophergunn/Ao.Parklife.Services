@@ -21,6 +21,58 @@ namespace Ao.Parklife.Services.Controllers
             return JsonConvert.SerializeObject(_visibleUsers);
         }
 
+
+
+        [System.Web.Http.HttpGet]
+        [Route("DummyGetAll")]
+        public string DummyGetAllUsers()
+        {
+            var dummyUsers = new List<User>
+            {
+                new User("Vincent Lee")
+                {
+                    VisibleRegions = new List<Region>
+                    {
+                        new Region(RegionIds.FoodCounter)
+                        {
+                            EnteredAt = DateTime.UtcNow,
+                            OwnedBeacons = new List<Beacon>()
+                            {
+                                new Beacon
+                                {
+                                     UUID = "food1",
+                                     LatestReading = new BeaconReading(DateTime.UtcNow, 2.4)
+                                },
+                                new Beacon
+                                {
+                                     UUID = "food2",
+                                     LatestReading = new BeaconReading(DateTime.UtcNow, 1.0)
+                                }
+                            }
+                        },
+                        new Region(RegionIds.GamesArea)
+                        {
+                            EnteredAt = DateTime.UtcNow.AddMinutes(-4),
+                            OwnedBeacons = new List<Beacon>()
+                            {
+                                new Beacon
+                                {
+                                     UUID = "games1",
+                                     LatestReading = new BeaconReading(DateTime.UtcNow, 8.4)
+                                },
+                                new Beacon
+                                {
+                                     UUID = "games2",
+                                     LatestReading = new BeaconReading(DateTime.UtcNow, 12.0)
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            return JsonConvert.SerializeObject(dummyUsers);
+        }
+
         [Route("enterregion/{regionId}/{userid}")]
         [HttpGet]
         [HttpPost]
