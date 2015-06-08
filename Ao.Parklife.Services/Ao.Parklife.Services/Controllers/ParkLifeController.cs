@@ -1,37 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Http.Results;
 using Ao.Parklife.Services.Models;
 using Newtonsoft.Json;
 
 namespace Ao.Parklife.Services.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api")]
     public class ParkLifeController : ApiController
     {
         private static readonly List<User> _visibleUsers = new List<User>();
         private static readonly List<Beacon> _beacons = new List<Beacon>();
-
-
-private TwitterClient _twitter;
+        private readonly TwitterClient _twitter;
 
         public ParkLifeController()
         {
             _twitter = new TwitterClient();
         }
+
         [HttpGet]
         [Route("GetAll")]
         public string GetAllUsers()
         {
             return JsonConvert.SerializeObject(_visibleUsers);
         }
-
-
 
         [HttpGet]
         [Route("DummyGetAll")]
@@ -45,7 +42,7 @@ private TwitterClient _twitter;
             var closestRegion = new Region(RegionIds.FoodCounter)
             {
                 EnteredAt = DateTime.UtcNow,
-                OwnedBeacons = new List<Beacon>()
+                OwnedBeacons = new List<Beacon>
                 {
                     new Beacon
                     {
@@ -65,23 +62,23 @@ private TwitterClient _twitter;
                         new Region(RegionIds.GamesArea)
                         {
                             EnteredAt = DateTime.UtcNow.AddMinutes(-4),
-                            OwnedBeacons = new List<Beacon>()
+                            OwnedBeacons = new List<Beacon>
                             {
                                 new Beacon
                                 {
-                                     UUID = "games1",
-                                     LatestReading = new BeaconReading(DateTime.UtcNow, 8.4)
+                                    UUID = "games1",
+                                    LatestReading = new BeaconReading(DateTime.UtcNow, 8.4)
                                 },
                                 new Beacon
                                 {
-                                     UUID = "games2",
-                                     LatestReading = new BeaconReading(DateTime.UtcNow, 12.0)
+                                    UUID = "games2",
+                                    LatestReading = new BeaconReading(DateTime.UtcNow, 12.0)
                                 }
                             }
                         }
                     },
                     ClosestRegion = closestRegion,
-                        ClosestBeacon = closestBeacon
+                    ClosestBeacon = closestBeacon
                 }
             };
             return JsonConvert.SerializeObject(dummyUsers);
@@ -96,17 +93,17 @@ private TwitterClient _twitter;
             user = AddUser(userid, user);
             if (user.VisibleRegions.FirstOrDefault(r => r.Id == regionId) == null)
             {
-                user.VisibleRegions.Add(new Region(regionId) { EnteredAt = DateTime.Now });
+                user.VisibleRegions.Add(new Region(regionId) {EnteredAt = DateTime.Now});
             }
-            if (user.VisibleRegions.Count()==1)
+            if (user.VisibleRegions.Count() == 1)
             {
                 user.ClosestRegion = user.VisibleRegions.First();
             }
-           
+
 
             _twitter.Send(user.UserName + "has entered the Park!");
 
-            return Request.CreateResponse(System.Net.HttpStatusCode.Created, regionId.ToString());
+            return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
 
         private static User AddUser(string userid, User user)
@@ -137,12 +134,14 @@ private TwitterClient _twitter;
 
             _twitter.Send(user.UserName + "has left the Park!");
 
-            return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
+            return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
+
         [Route("signalupdateclosest/{regionId}/{userName}/{uuid}/{receivedSignalStrength}")]
         [HttpPost]
         [HttpGet]
-        public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid, int receivedSignalStrength)
+        public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid,
+            int receivedSignalStrength)
         {
             var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);
             user = AddUser(userName, user);
@@ -164,7 +163,7 @@ private TwitterClient _twitter;
             }
             user.ClosestRegion = matchingRegion;
 
-            return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK,"OK");
+            return Request.CreateResponse(HttpStatusCode.OK, "OK");
         }
     }
 }
