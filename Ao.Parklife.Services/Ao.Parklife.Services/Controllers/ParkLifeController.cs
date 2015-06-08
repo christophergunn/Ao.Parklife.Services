@@ -15,13 +15,15 @@ namespace Ao.Parklife.Services.Controllers
     public class ParkLifeController : ApiController
     {
         private static readonly List<User> _visibleUsers = new List<User>();
-        private TwitterClient _twitter;
+        private static readonly List<Beacon> _beacons = new List<Beacon>();
+
+
+private TwitterClient _twitter;
 
         public ParkLifeController()
         {
             _twitter = new TwitterClient();
         }
-
         [HttpGet]
         [Route("GetAll")]
         public string GetAllUsers()
@@ -31,7 +33,7 @@ namespace Ao.Parklife.Services.Controllers
 
 
 
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         [Route("DummyGetAll")]
         public string DummyGetAllUsers()
         {
@@ -122,6 +124,26 @@ namespace Ao.Parklife.Services.Controllers
             _twitter.Send(user.UserName + "has left the Park!");
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
+        }
+        [Route("signalupdateclosest/{userName}/{regionId}/{uuid}/{receivedSignalStrength}")]
+        [HttpPost]
+        [HttpGet]
+        public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid, int receivedSignalStrength)
+        {
+            var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);
+            if (user == null)
+            {
+                user = new User(userName);
+                _visibleUsers.Add(user);
+            }
+            user.ClosestBeacon = new Beacon()
+            {
+                UUID = uuid,
+                RegionId = regionId,
+                LatestReading = new BeaconReading(DateTime.Now, receivedSignalStrength)
+            };
+
+            return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK,"OK");
         }
     }
 }
