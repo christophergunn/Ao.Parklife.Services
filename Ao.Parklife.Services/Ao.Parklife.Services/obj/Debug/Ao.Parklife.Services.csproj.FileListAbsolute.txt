@@ -65,6 +65,5 @@ C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\k
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\ru\System.Spatial.resources.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\zh-Hans\System.Spatial.resources.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\zh-Hant\System.Spatial.resources.dll
-C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.csprojResolveAssemblyReference.cache
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.pdb
