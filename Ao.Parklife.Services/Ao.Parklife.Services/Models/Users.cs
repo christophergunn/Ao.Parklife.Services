@@ -9,10 +9,9 @@ namespace Ao.Parklife.Services.Models
         public string Uuid { get; set; }
         public ConnectionStatus Status { get; set; }
         public DateTime TimeStampTime { get; set; }
-        public Regions[] Region { get; set; }
+        public Regions[] Regions { get; set; }
         public Regions ClosestRegion { get; set; }
         public int ReceivedSignalStrength { get; set; }
-
     }
 
     public enum Regions
@@ -29,6 +28,5 @@ namespace Ao.Parklife.Services.Models
     {
         Connected,
         Disconnected
-
     };
 }
