@@ -27,29 +27,31 @@ namespace Ao.Parklife.Services.Controllers
         [Route("DummyGetAll")]
         public string DummyGetAllUsers()
         {
+            var closestBeacon = new Beacon
+            {
+                UUID = "food2",
+                LatestReading = new BeaconReading(DateTime.UtcNow, 1.0)
+            };
+            var closestRegion = new Region(RegionIds.FoodCounter)
+            {
+                EnteredAt = DateTime.UtcNow,
+                OwnedBeacons = new List<Beacon>()
+                {
+                    new Beacon
+                    {
+                        UUID = "food1",
+                        LatestReading = new BeaconReading(DateTime.UtcNow, 2.4)
+                    },
+                    closestBeacon
+                }
+            };
             var dummyUsers = new List<User>
             {
                 new User("Vincent Lee")
                 {
                     VisibleRegions = new List<Region>
                     {
-                        new Region(RegionIds.FoodCounter)
-                        {
-                            EnteredAt = DateTime.UtcNow,
-                            OwnedBeacons = new List<Beacon>()
-                            {
-                                new Beacon
-                                {
-                                     UUID = "food1",
-                                     LatestReading = new BeaconReading(DateTime.UtcNow, 2.4)
-                                },
-                                new Beacon
-                                {
-                                     UUID = "food2",
-                                     LatestReading = new BeaconReading(DateTime.UtcNow, 1.0)
-                                }
-                            }
-                        },
+                        closestRegion,
                         new Region(RegionIds.GamesArea)
                         {
                             EnteredAt = DateTime.UtcNow.AddMinutes(-4),
@@ -67,7 +69,9 @@ namespace Ao.Parklife.Services.Controllers
                                 }
                             }
                         }
-                    }
+                    },
+                    ClosestRegion = closestRegion,
+                        ClosestBeacon = closestBeacon
                 }
             };
             return JsonConvert.SerializeObject(dummyUsers);
