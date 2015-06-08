@@ -26,7 +26,7 @@ namespace Ao.Parklife.Services.Controllers
         [Route("GetAll")]
         public string GetAllUsers()
         {
-            return JsonConvert.SerializeObject(_visibleUsers);
+            return JsonConvert.SerializeObject(_visibleUsers.Where(u => u.VisibleRegions.Any()));
         }
 
         [HttpGet]
