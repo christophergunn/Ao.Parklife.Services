@@ -26,7 +26,7 @@ namespace Ao.Parklife.Services.Controllers
 
 
 
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         [Route("DummyGetAll")]
         public string DummyGetAllUsers()
         {
