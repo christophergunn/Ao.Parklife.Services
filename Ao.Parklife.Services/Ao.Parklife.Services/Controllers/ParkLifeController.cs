@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Results;
 using Ao.Parklife.Services.Models;
 using Newtonsoft.Json;
 
 namespace Ao.Parklife.Services.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api")]
     public class ParkLifeController : ApiController
     {
