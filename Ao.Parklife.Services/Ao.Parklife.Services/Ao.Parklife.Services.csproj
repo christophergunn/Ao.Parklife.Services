@@ -135,8 +135,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TwitterClient.cs" />
     <Compile Include="Twitter\TinyTwitter.cs" />
+    <Compile Include="Twitter\TwitterClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

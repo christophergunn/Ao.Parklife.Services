@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ao.Parklife.Services.Twitter;
 using NUnit.Framework;
-using TinyTwitter;
 
 namespace Ao.Parklife.Services.Tests
 {
     [TestFixture]
     public class TwitterClientTests
     {
-        [Test]
+        [Test, Ignore]
         public void CanMakePosts()
         {
             var t = new TwitterClient();
             t.Send("Test");
         }
 
-        [Test]
+        [Test, Ignore]
         public void ProfileInfo()
         {
 
@@ -35,7 +35,7 @@ namespace Ao.Parklife.Services.Tests
                 ConsumerSecret = consumerSecret
             };
 
-            var twitter = new TinyTwitter.TinyTwitter(oauth);
+            var twitter = new TinyTwitter(oauth);
 
             // Update status, i.e, post a new tweet
             twitter.UpdateStatus("I'm tweeting from C#");

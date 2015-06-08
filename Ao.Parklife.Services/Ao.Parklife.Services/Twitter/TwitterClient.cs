@@ -1,10 +1,9 @@
-using TinyTwitter;
 
 namespace Ao.Parklife.Services.Twitter
 {
     public class TwitterClient
     {
-        private readonly TinyTwitter.TinyTwitter _twitter;
+        private readonly TinyTwitter _twitter;
 
         public TwitterClient()
         {
@@ -24,7 +23,7 @@ namespace Ao.Parklife.Services.Twitter
                 ConsumerSecret = consumerSecret
             };
 
-            _twitter = new TinyTwitter.TinyTwitter(oauth);
+            _twitter = new TinyTwitter(oauth);
         }
 
         public void Send(string message)
