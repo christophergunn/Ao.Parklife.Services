@@ -15,7 +15,6 @@ namespace Ao.Parklife.Services.Controllers
     public class ParkLifeController : ApiController
     {
         private static readonly List<User> _visibleUsers = new List<User>();
-        private static readonly List<Beacon> _beacons = new List<Beacon>();
         private readonly TwitterClient _twitter;
 
         public ParkLifeController()
@@ -132,7 +131,7 @@ namespace Ao.Parklife.Services.Controllers
                 user.ClosestRegion = user.VisibleRegions.First();
             }
 
-            _twitter.Send(user.UserName + "has left the Park!");
+            if (user != null) _twitter.Send(user.UserName + "has left the Park!");
 
             return Request.CreateResponse(HttpStatusCode.Created, regionId.ToString());
         }
@@ -141,7 +140,7 @@ namespace Ao.Parklife.Services.Controllers
         [HttpPost]
         [HttpGet]
         public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid,
-            int receivedSignalStrength)
+            double receivedSignalStrength)
         {
             var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);
             user = AddUser(userName, user);
