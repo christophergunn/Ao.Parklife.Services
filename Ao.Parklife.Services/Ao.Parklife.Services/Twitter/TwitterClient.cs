@@ -1,4 +1,6 @@
 
+using System;
+
 namespace Ao.Parklife.Services.Twitter
 {
     public class TwitterClient
@@ -28,7 +30,13 @@ namespace Ao.Parklife.Services.Twitter
 
         public void Send(string message)
         {
-            _twitter.UpdateStatus(message);
+            try
+            {
+                _twitter.UpdateStatus(message);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
