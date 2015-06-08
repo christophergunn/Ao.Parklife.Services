@@ -5,7 +5,6 @@ namespace Ao.Parklife.Services.Models
 {
     public class Users
     {
-        public int Id { get; set; }
         public string UserName { get; set; }
         public string Uuid { get; set; }
         public ConnectionStatus Status { get; set; }
