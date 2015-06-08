@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Web.Mvc;
 using Ao.Parklife.Services.Models;
 using Newtonsoft.Json;
 
@@ -40,6 +43,18 @@ namespace Ao.Parklife.Services.Controllers
         public string GetAllUsers()
         {
             return JsonConvert.SerializeObject(Users);
+        }
+
+        
+        [HttpPost]
+        public HttpResponseMessage EnterRegion(int userId, Regions region)
+        {
+            var user = Users.FirstOrDefault(x => x.Id == userId);
+            if (user != null) user.ClosestRegion = region;
+
+            var response = Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, region.ToString());
+
+            return response;
         }
     }
 }
