@@ -50,3 +50,6 @@ C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\S
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.dll
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.pdb
 C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\obj\Debug\Ao.Parklife.Services.csprojResolveAssemblyReference.cache
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Cors.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Http.Cors.dll
+C:\GIT\Hack\Ao.Parklife.Services\Ao.Parklife.Services\Ao.Parklife.Services\bin\System.Web.Http.Cors.xml

@@ -114,27 +114,25 @@ namespace Ao.Parklife.Services.Controllers
 
             return Request.CreateResponse<string>(System.Net.HttpStatusCode.Created, regionId.ToString());
         }
-        [Route("signalupdate/{userName}/{regionId}/{uuid}/{receivedSignalStrength}")]
+        [Route("signalupdateclosest/{userName}/{regionId}/{uuid}/{receivedSignalStrength}")]
         [HttpPost]
         [HttpGet]
         public HttpResponseMessage SignalUpdate(string userName, RegionIds regionId, string uuid, int receivedSignalStrength)
         {
-            var beacon = _beacons.FirstOrDefault(x => x.UUID==uuid);
-            if (beacon == null)
+            var user = _visibleUsers.FirstOrDefault(u => u.UserName == userName);
+            if (user == null)
             {
-                beacon = new Beacon
-                {
-                    UUID = uuid,
-                    RegionId = regionId,
-                    LatestReading = new BeaconReading(DateTime.Now, receivedSignalStrength)
-                };
-
-                _beacons.Add(beacon);
-                
+                user = new User(userName);
+                _visibleUsers.Add(user);
             }
-            beacon.LatestReading= new BeaconReading(DateTime.Now,receivedSignalStrength);
+            user.ClosestBeacon = new Beacon()
+            {
+                UUID = uuid,
+                RegionId = regionId,
+                LatestReading = new BeaconReading(DateTime.Now, receivedSignalStrength)
+            };
 
-            return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK, "OK");
+            return Request.CreateResponse<string>(System.Net.HttpStatusCode.OK,"OK");
         }
     }
 }
